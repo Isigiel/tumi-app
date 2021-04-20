@@ -8,6 +8,7 @@ import { AuthService, UserService } from '@tumi/services';
 import { InvoiceService } from '@tumi/services/invoice.service';
 import { Observable } from 'rxjs';
 import { first, switchMap, tap } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-member-details-page',
@@ -23,18 +24,19 @@ export class MemberDetailsPageComponent implements OnInit {
     private route: ActivatedRoute,
     private invoices: InvoiceService,
     private snackBar: MatSnackBar,
-    public auth: AuthService
-  ) {}
+    public auth: AuthService,
+  ) {
+  }
 
   ngOnInit(): void {
     this.user$ = this.route.paramMap.pipe(
-      switchMap((params) => this.users.getOne$(params.get('userId') as string))
+      switchMap((params) => this.users.getOne$(params.get('userId') as string)),
+      tap(data => console.log(data))
     );
     this.invoices$ = this.route.paramMap.pipe(
       switchMap((params) =>
         this.invoices.getForUserId(params.get('userId') as string)
-      ),
-      tap(console.log)
+      )
     );
   }
 

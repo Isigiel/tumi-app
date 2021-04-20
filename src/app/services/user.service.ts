@@ -16,7 +16,7 @@ export class UserService {
         ref
           .where('status', 'not-in', [MemberStatus.none])
           .orderBy('status', 'asc')
-          .orderBy('joinedAssociation', 'asc')
+          .orderBy('lastName', 'asc')
       )
       .valueChanges()
       .pipe(shareReplay(1));
