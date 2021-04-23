@@ -102,6 +102,13 @@
         ></app-tutor-registration>
         <app-pay-pal-registration [event]="event"></app-pay-pal-registration>
       </ng-container>
+      <ng-container *ngSwitchCase="'stripe'">
+        <app-tutor-registration
+          *ngIf="isTutor$ | ngrxPush"
+          [event]="event"
+        ></app-tutor-registration>
+        <app-stripe-registration [event]="event"></app-stripe-registration>
+      </ng-container>
       <ng-container *ngSwitchCase="'office'">
         <app-tutor-registration
           *ngIf="isTutor$ | ngrxPush"
@@ -124,6 +131,8 @@
   <app-event-participants
     [event]="event"
     [user]="user$ | ngrxPush"
-    *ngIf="event.registrationMode !== 'external' && canSeeParticipants$ | ngrxPush"
+    *ngIf="
+      event.registrationMode !== 'external' && canSeeParticipants$ | ngrxPush
+    "
   ></app-event-participants>
 </ng-container>

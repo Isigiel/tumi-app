@@ -22,10 +22,8 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 })
 export class PayPalRegistrationComponent implements OnChanges {
   @Input() event: any;
-  /* eslint-enable @typescript-eslint/naming-convention */
   public registration$ = new Subject<any>();
   public freeSpots$ = new Subject<boolean>();
-  /* eslint-disable @typescript-eslint/naming-convention */
   public paymentConfig: IPayPalConfig = {
     clientId: environment.paypal.clientId,
     currency: 'EUR',

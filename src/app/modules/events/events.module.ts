@@ -17,6 +17,7 @@ import { CollectMoneyComponent } from './components/collect-money/collect-money.
 import { NgxPayPalModule } from 'ngx-paypal';
 import { PayPalRegistrationComponent } from './components/pay-pal-registration/pay-pal-registration.component';
 import { EventOrganizerComponent } from './components/event-organizer/event-organizer.component';
+import { StripeRegistrationComponent } from './components/stripe-registration/stripe-registration.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EventOrganizerComponent } from './components/event-organizer/event-orga
     CollectMoneyComponent,
     PayPalRegistrationComponent,
     EventOrganizerComponent,
+    StripeRegistrationComponent,
   ],
   imports: [CommonModule, SharedModule, EventsRoutingModule, NgxPayPalModule],
 })
