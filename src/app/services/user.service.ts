@@ -34,6 +34,15 @@ export class UserService {
       );
   }
 
+  public getPeopleOnMailingList$(): Observable<User[]> {
+    return this.store
+      .collection<User>(User.collection(this.store), (ref) =>
+        ref.where('onAlumniMailingList', '==', true)
+      )
+      .valueChanges()
+      .pipe(shareReplay(1));
+  }
+
   public getOne$(id: string): Observable<any> {
     return this.store
       .collection<User>(User.collection(this.store))
