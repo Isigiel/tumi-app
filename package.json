@@ -16,6 +16,7 @@
     "lint": "nx lint",
     "ng": "nx",
     "postdeploy:all": "cross-var sentry-cli releases files \"tumi-app@$npm_package_version\" upload-sourcemaps ./dist/tumi-app/browser && cross-var sentry-cli releases deploys \"tumi-app@$npm_package_version\" new -e production && cross-var sentry-cli releases finalize \"tumi-app@$npm_package_version\"&& cross-var sentry-cli releases deploys \"universal-render@$npm_package_version\" new -e production && cross-var sentry-cli releases finalize \"universal-render@$npm_package_version\"",
+    "postinstall": "node ./decorate-angular-cli.js",
     "postrelease:deploy": "yarn run sentry:release:start",
     "prebuild:all": "yarn run release:deploy",
     "precopy:hosting": "rimraf functions/dist",
@@ -30,7 +31,7 @@
     "statistics": "nx build --prod --stats-json && webpack-bundle-analyzer dist/tumi-app/browser/stats.json",
     "test": "nx test",
     "upgrade": "nx migrate latest",
-    "postinstall": "node ./decorate-angular-cli.js"
+    "upgrade:apply": "nx migrate --run-migrations=migrations.json"
   },
   "dependencies": {
     "@angular/animations": "~11.2.7",
@@ -49,7 +50,7 @@
     "@angular/service-worker": "^11.2.7",
     "@ngrx/component": "^11.0.0-rc.0",
     "@nguniversal/express-engine": "^11.2.1",
-    "@nrwl/workspace": "12.0.8",
+    "@nrwl/workspace": "12.3.3",
     "@sentry/angular": "^6.2.3",
     "@sentry/node": "^6.2.3",
     "@sentry/tracing": "^6.2.3",
@@ -78,9 +79,9 @@
     "@angular/cli": "~11.2.9",
     "@angular/compiler-cli": "~11.2.7",
     "@nguniversal/builders": "^11.2.1",
-    "@nrwl/cli": "12.0.8",
-    "@nrwl/nx-cloud": "11.2.0",
-    "@nrwl/tao": "12.0.8",
+    "@nrwl/cli": "12.3.3",
+    "@nrwl/nx-cloud": "12.1.1",
+    "@nrwl/tao": "12.3.3",
     "@sentry/cli": "^1.63.1",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/line-clamp": "^0.2.0",
