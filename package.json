@@ -1,6 +1,6 @@
 {
   "name": "tumi-app",
-  "version": "2.0.0-deploy.35",
+  "version": "2.0.0-deploy.36",
   "private": true,
   "scripts": {
     "build:all": "yarn run build:ssr && yarn run copy:hosting",
@@ -50,7 +50,7 @@
     "@angular/service-worker": "^11.2.7",
     "@ngrx/component": "^11.0.0-rc.0",
     "@nguniversal/express-engine": "^11.2.1",
-    "@nrwl/workspace": "12.3.3",
+    "@nrwl/workspace": "12.3.4",
     "@sentry/angular": "^6.2.3",
     "@sentry/node": "^6.2.3",
     "@sentry/tracing": "^6.2.3",
@@ -79,9 +79,9 @@
     "@angular/cli": "~11.2.9",
     "@angular/compiler-cli": "~11.2.7",
     "@nguniversal/builders": "^11.2.1",
-    "@nrwl/cli": "12.3.3",
+    "@nrwl/cli": "12.3.4",
     "@nrwl/nx-cloud": "12.1.1",
-    "@nrwl/tao": "12.3.3",
+    "@nrwl/tao": "12.3.4",
     "@sentry/cli": "^1.63.1",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/line-clamp": "^0.2.0",
